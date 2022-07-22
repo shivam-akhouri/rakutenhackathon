@@ -1,4 +1,10 @@
-.button {
+.chatbot {
+    position: fixed;
+    bottom: -4px;
+    right: 10px;
+  }
+
+  .chatbot {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
@@ -6,18 +12,18 @@
     line-height: 29px;
     color:white;
     background: #94B3FD;
-    /* border-radius: 7px; */
+    border-radius: 7px;
     text-align: center;
     padding: 10px 30px;
     cursor: pointer;
-}
+} 
 
-.button:hover,
-.button:active {
+.chatbot:hover,
+.chatbot:active {
     background: #B983FF;
     border-color: #B983FF;
 }
 
-.button:focus {
+.chatbot:focus {
     outline: none;
 }

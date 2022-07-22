@@ -4,6 +4,11 @@ import './Profile.css';
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {setChannelInfo} from "../../features/channelSlice";
+import SpeakerIcon from '@mui/icons-material/Speaker';
+import HeadphonesIcon from '@mui/icons-material/Headphones';
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
+import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
+
 
 const Profile = ({id, name, authorId}) => {
     const dispatch = useDispatch();
@@ -31,12 +36,12 @@ const Profile = ({id, name, authorId}) => {
 
             <div className="main">
                 <div className="flex flex-row">
-                    <div className="d1">🧬</div>
-                    <div className="d1">🩺</div>
+                    <div className="d1"><SmartphoneIcon/></div>
+                    <div className="d1"><HeadphonesIcon/></div>
                 </div>
                 <div className="flex flex-row">
-                    <div className="d1">🚗</div>
-                    <div className="d1">🏚️</div>
+                    <div className="d1"><SpeakerIcon/></div>
+                    <div className="d1"><DirectionsCarFilledIcon/></div>
                 </div>
             </div>
 

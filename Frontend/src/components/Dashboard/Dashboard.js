@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from "../Header/Header";
 import Card from "../UI/Card/Card";
 import Profile from "../Profile/Profile";
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import HeadphonesIcon from '@mui/icons-material/Headphones';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import MonitorHeartOutlinedIcon from '@mui/icons-material/MonitorHeartOutlined';
+import SpeakerIcon from '@mui/icons-material/Speaker';
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import skull from '../Assets/toxic (1).png'
 import heart from '../Assets/love (1).png'
 import car from '../Assets/toy-car.png'
@@ -13,6 +14,7 @@ import home from '../Assets/home.png'
 import Banner from "../UI/Banner/Banner";
 import {PaperAirplaneIcon, PaperClipIcon} from "@heroicons/react/outline";
 import './Dashboard.css';
+import {ChatBot} from "../UI/ChatBot/ChatBot"
 import {
     PieChart,
     Pie,
@@ -36,10 +38,10 @@ const Dashboard = () => {
     ]
 
     const data = [
-        {name: 'Life Insurance', students: 400, fill: '#B983FF'},
-        {name: 'Health Insurance', students: 700, fill: '#94B3FD'},
-        {name: 'Automobile Insurance', students: 200, fill: '#94DAFF'},
-        {name: 'Home Insurance', students: 1000, fill: '#81CACF'}
+        {name: 'Smartphones', students: 400, fill: '#F806CC'},
+        {name: 'Headphones', students: 700, fill: '#570A57'},
+        {name: 'Cars', students: 200, fill: '#A91079'},
+        {name: 'Speakers', students: 1000, fill: '#2E0249'}
     ];
 
     const segregatedData = [
@@ -71,10 +73,10 @@ const Dashboard = () => {
     ]);
     const [chartData, setchartData] = useState(null);
     const [collective, setCollective] = useState([
-        {name: 'Life Insurance', students: 0, fill: '#D61C4E' },
-        {name: 'Health Insurance', students: 0, fill: '#F77E21' },
-        {name: 'Automobile Insurance', students: 0, fill: '#FAC213' },
-        {name: 'Home Insurance', students: 0, fill: '#66BFBF' }
+        {name: 'SmartPhones', students: 0, fill: '#D61C4E' },
+        {name: 'HeadPhones', students: 0, fill: '#F77E21' },
+        {name: 'Cars', students: 0, fill: '#FAC213' },
+        {name: 'Speakers', students: 0, fill: '#66BFBF' }
     ])
     const [lifeInsurance, setLifeInsurance] = useState(null);
     const [healthInsurance, setHealthInsurance] = useState(null);
@@ -139,36 +141,36 @@ const Dashboard = () => {
                 <span className="dashboard-heading__main px-5">Dashboard</span>
                 <div className="flex">
                     <div className="flex flex-col gap-5">
-                        <Card className="card py-6 my-5 w-[23rem]">
+                        <Card className="card py-4 my-5 w-[20rem]">
 
-                            <span className="subheading px-6">
+                            <span className="subheading px-3">
                                 Potential Leads
                             </span>
                             <hr/>
                             <div className="h-[68vh] flex-grow overflow-y-scroll">
-                                <div className="flex justify-center">
+                                <div className="flex justify-center py-3">
                                     <button className="toggle-button" onClick={()=>setItem(0)}>
                                         <a href="#" title="Header" data-toggle="popover" data-placement="top"
-                                           data-content="Content"><MonitorHeartOutlinedIcon/></a>
-                                           <p>Life</p>
+                                           data-content="Content"><SmartphoneIcon/></a>
+                                 
                                     </button>
 
                                     <button className="toggle-button" onClick={()=>setItem(1)}>
                                     <a href="#" title="Header" data-toggle="popover" data-placement="bottom"
-                                       data-content="Content"><FavoriteBorderOutlinedIcon/></a>
-                                       <p>Health</p>
+                                       data-content="Content"><HeadphonesIcon/></a>
+                                  
                                     </button>
 
                                     <button className="toggle-button" onClick={()=>setItem(2)} >
                                     <a href="#" title="Header" data-toggle="popover" data-placement="left"
                                        data-content="Content"><DirectionsCarIcon/></a>
-                                       <p>Car</p>
+                                       
                                     </button>
 
                                     <button className="toggle-button" onClick={()=>setItem(3)} >
                                     <a href="#" title="Header" data-toggle="popover" data-placement="right"
-                                       data-content="Content"><HomeOutlinedIcon/></a>
-                                       <p>Home</p>
+                                       data-content="Content"><SpeakerIcon/></a>
+                                       
                                     </button>
                                 </div>
                                 {
@@ -198,7 +200,7 @@ const Dashboard = () => {
                             <ResponsiveContainer width={500} height="80%">
                                 <PieChart width={200} height={200}>
                                     <Legend verticalAlign="bottom" align="center"/>
-                                    <Pie data={sentiments} dataKey="students" outerRadius={200} fill="#8884d8"/>
+                                    <Pie data={sentiments} dataKey="students" outerRadius={200} fill="#8884d8" label/>
                                 </PieChart>
                             </ResponsiveContainer>
                         </div>
@@ -208,7 +210,7 @@ const Dashboard = () => {
                             <ResponsiveContainer width={500} height="85%">
                                 <PieChart width={200} height={200}>
                                     <Legend verticalAlign="bottom" align="center" />
-                                    <Pie data={data} dataKey="students" outerRadius={200} fill="#8884d8"/>
+                                    <Pie data={data} dataKey="students" outerRadius={200} fill="#8884d8" label/>
                                 </PieChart>
                             </ResponsiveContainer>
                         </div>
@@ -233,6 +235,7 @@ const Dashboard = () => {
                     </BarChart>
                 </div>
             </div>
+             <ChatBot><Link to="/dashboard">ChatBot</Link></ChatBot>
         </div>
     );
 };

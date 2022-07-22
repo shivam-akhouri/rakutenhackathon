@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import {auth, db} from "../../firebase";
 import {Navigate} from "react-router-dom";
@@ -16,6 +17,8 @@ import {PaperAirplaneIcon, PaperClipIcon} from "@heroicons/react/outline";
 import { useRef } from "react";
 import { addDoc, collection, query } from 'firebase/firestore/lite';
 import { doc, getDocs, onSnapshot, orderBy } from 'firebase/firestore';
+import { ChatBot } from '../UI/ChatBot/ChatBot';
+import Button from '../UI/Button/Button'
 
 const Home = () => {
     // const [user] = useAuthState(auth);
@@ -78,14 +81,14 @@ const Home = () => {
                     </span>
                             <hr/>
                             <div className="h-[42vh] flex-grow overflow-y-scroll">
-                                <Profile type="rounded-full" name="Life Insurance"/>
-                                <Profile type="rounded-full" name="Health Insurance"/>
-                                <Profile type="rounded-full" name="Automobile Insurance"/>
-                                <Profile type="rounded-full" name="Home Insurance"/>
-                                <Profile type="rounded-full" name="Travel Insurance"/>
-                                <Profile type="rounded-full" name="Home Loan"/>
-                                <Profile type="rounded-full" name="Car Loan"/>
-                                <Profile type="rounded-full" name="EMI"/>
+                                <Profile type="rounded-full" name="Smartphones"/>
+                                <Profile type="rounded-full" name="Cars"/>
+                                <Profile type="rounded-full" name="Headphones"/>
+                                <Profile type="rounded-full" name="Speakers"/>
+                                <Profile type="rounded-full" name="Shoes"/>
+                                <Profile type="rounded-full" name="Accessories"/>
+                                <Profile type="rounded-full" name="Laptops"/>
+
                             </div>
 
                             {/*for displaying through firebase*/}
@@ -97,9 +100,9 @@ const Home = () => {
                     </div>
                     <div className="flex px-5">
 
-                        <Card className="absolute card flex flex-col overflow-y-auto pb-6 h-[88vh]">
+                        <Card className="absolute card flex flex-col overflow-y-auto pb-6 h-[88vh] w-[156vh]">
 
-                            <Banner heading="Home Insurance"/>
+                            <Banner heading="Smartphones"/>
 
                                 <div
                                     className="sticky top-5 bottom-20 chat__input-section flex items-center p-2.5 mx-8
@@ -123,11 +126,13 @@ const Home = () => {
                                         <Chat text={text} isUser={"user1" == sender}/>
                                 ))}
                             </div>
+                           
                         </Card>
+                       
                     </div>
                 </div>
-
-
+                
+                
             </div>
         </>
     );
