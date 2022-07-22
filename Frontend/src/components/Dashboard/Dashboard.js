@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Header from "../Header/Header";
 import Card from "../UI/Card/Card";
 import Profile from "../Profile/Profile";
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import MonitorHeartOutlinedIcon from '@mui/icons-material/MonitorHeartOutlined';
+import skull from '../Assets/toxic (1).png'
+import heart from '../Assets/love (1).png'
+import car from '../Assets/toy-car.png'
+import home from '../Assets/home.png'
 import Banner from "../UI/Banner/Banner";
 import {PaperAirplaneIcon, PaperClipIcon} from "@heroicons/react/outline";
 import './Dashboard.css';
@@ -18,45 +26,46 @@ import {
     Bar,
     Cell
 } from "recharts";
+import { width } from '@mui/system';
 
 const Dashboard = () => {
     const sentiments = [
-        {name: 'Possitive', students: 400, fill: 'green' },
-        {name: 'Negative', students: 700, fill: 'red' },
-        {name: "Neutral", students: 200, fill: "yellow"}
+        {name: 'Positive', students: 400, fill: '#7A86B6' },
+        {name: 'Negative', students: 700, fill: '#A8A4CE' },
+        {name: "Neutral", students: 200, fill: "#C8B6E2"}
     ]
 
     const data = [
-        {name: 'Life Insurance', students: 400, fill: '#D61C4E'},
-        {name: 'Health Insurance', students: 700, fill: '#F77E21'},
-        {name: 'Automobile Insurance', students: 200, fill: '#FAC213'},
-        {name: 'Home Insurance', students: 1000, fill: '#A64B2A'}
+        {name: 'Life Insurance', students: 400, fill: '#B983FF'},
+        {name: 'Health Insurance', students: 700, fill: '#94B3FD'},
+        {name: 'Automobile Insurance', students: 200, fill: '#94DAFF'},
+        {name: 'Home Insurance', students: 1000, fill: '#81CACF'}
     ];
 
     const segregatedData = [
         {
             "name": "Life Insurance",
-            "possitive": 4000,
+            "positive": 4000,
             "negative": 2400
         },
         {
             "name": "Home Insurance",
-            "possitive": 3000,
+            "positive": 3000,
             "negative": 1398
         },
         {
             "name": "Automobile Insurance",
-            "possitive": 2000,
+            "positive": 2000,
             "negative": 9800
         },
         {
             "name": "Health Insurance",
-            "possitive": 2780,
+            "positive": 2780,
             "negative": 3908
         }
       ]
     const [insuranceData, setInsuranceData] = useState([
-        {name: 'Possitive', students: 1, fill: 'green' },
+        {name: 'Positive', students: 1, fill: 'green' },
         {name: 'Negative', students: 1, fill: 'red' },
         {name: "Neutral", students: 1, fill: "yellow"}
     ]);
@@ -65,7 +74,7 @@ const Dashboard = () => {
         {name: 'Life Insurance', students: 0, fill: '#D61C4E' },
         {name: 'Health Insurance', students: 0, fill: '#F77E21' },
         {name: 'Automobile Insurance', students: 0, fill: '#FAC213' },
-        {name: 'Home Insurance', students: 0, fill: '#A64B2A' }
+        {name: 'Home Insurance', students: 0, fill: '#66BFBF' }
     ])
     const [lifeInsurance, setLifeInsurance] = useState(null);
     const [healthInsurance, setHealthInsurance] = useState(null);
@@ -130,7 +139,7 @@ const Dashboard = () => {
                 <span className="dashboard-heading__main px-5">Dashboard</span>
                 <div className="flex">
                     <div className="flex flex-col gap-5">
-                        <Card className="card py-6 my-5 w-[20rem]">
+                        <Card className="card py-6 my-5 w-[23rem]">
 
                             <span className="subheading px-6">
                                 Potential Leads
@@ -140,19 +149,26 @@ const Dashboard = () => {
                                 <div className="flex justify-center">
                                     <button className="toggle-button" onClick={()=>setItem(0)}>
                                         <a href="#" title="Header" data-toggle="popover" data-placement="top"
-                                           data-content="Content">🧬</a>
+                                           data-content="Content"><MonitorHeartOutlinedIcon/></a>
+                                           <p>Life</p>
                                     </button>
+
                                     <button className="toggle-button" onClick={()=>setItem(1)}>
                                     <a href="#" title="Header" data-toggle="popover" data-placement="bottom"
-                                       data-content="Content">🩺</a>
+                                       data-content="Content"><FavoriteBorderOutlinedIcon/></a>
+                                       <p>Health</p>
                                     </button>
-                                    <button className="toggle-button" onClick={()=>setItem(2)}>
+
+                                    <button className="toggle-button" onClick={()=>setItem(2)} >
                                     <a href="#" title="Header" data-toggle="popover" data-placement="left"
-                                       data-content="Content">🚗</a>
+                                       data-content="Content"><DirectionsCarIcon/></a>
+                                       <p>Car</p>
                                     </button>
-                                    <button className="toggle-button" onClick={()=>setItem(3)}>
+
+                                    <button className="toggle-button" onClick={()=>setItem(3)} >
                                     <a href="#" title="Header" data-toggle="popover" data-placement="right"
-                                       data-content="Content">🏚️</a>
+                                       data-content="Content"><HomeOutlinedIcon/></a>
+                                       <p>Home</p>
                                     </button>
                                 </div>
                                 {
@@ -179,20 +195,20 @@ const Dashboard = () => {
                         <div>
                             <span
                                 className="block dashboard-heading__chart px-5 text-center">Insurance Sentiments</span>
-                            <ResponsiveContainer width={700} height="80%">
-                                <PieChart width={500} height={500}>
+                            <ResponsiveContainer width={500} height="80%">
+                                <PieChart width={200} height={200}>
                                     <Legend verticalAlign="bottom" align="center"/>
-                                    <Pie data={sentiments} dataKey="students" outerRadius={250}/>
+                                    <Pie data={sentiments} dataKey="students" outerRadius={200} fill="#8884d8"/>
                                 </PieChart>
                             </ResponsiveContainer>
                         </div>
                         <div>
                             <span
                                 className="block dashboard-heading__chart px-5 text-center">Insurance Distributions</span>
-                            <ResponsiveContainer width={700} height="80%">
-                                <PieChart width={500} height={500}>
-                                    <Legend verticalAlign="bottom" align="center"/>
-                                    <Pie data={collective} dataKey="students" outerRadius={250} fill="green"/>
+                            <ResponsiveContainer width={500} height="85%">
+                                <PieChart width={200} height={200}>
+                                    <Legend verticalAlign="bottom" align="center" />
+                                    <Pie data={data} dataKey="students" outerRadius={200} fill="#8884d8"/>
                                 </PieChart>
                             </ResponsiveContainer>
                         </div>
@@ -202,18 +218,18 @@ const Dashboard = () => {
 
 
             </div>
-            <div className="flex flex-grow px-5 justify-evenly bg-[#B9E5FF]">
+            <div className="flex flex-grow px-5 justify-end bg-[#B9E5FF]">
 
-                <div>
-                    <span className="block dashboard-heading__chart px-5 text-center">Segregagted Sentiments</span>
-                    <BarChart width={1200} height={500} data={segregatedData}>
+                <div style={{marginRight: 20}}>
+                    <span className="block dashboard-heading__chart px-5 text-center" >Segregagted Sentiments</span>
+                    <BarChart width={1000} height={500} data={segregatedData}>
                         <CartesianGrid strokeDasharray="3 3"/>
                         <XAxis dataKey="name"/>
                         <YAxis/>
                         <Tooltip/>
                         <Legend/>
-                        <Bar dataKey="negative" fill="#F15412"/>
-                        <Bar dataKey="possitive" fill="#A0D995"/>
+                        <Bar dataKey="negative" fill="#F94C66"/>
+                        <Bar dataKey="positive" fill="#5A8F7B"/>
                     </BarChart>
                 </div>
             </div>

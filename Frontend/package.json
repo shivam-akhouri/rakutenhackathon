@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
     "@heroicons/react": "^1.0.6",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.9.0",
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -19,6 +23,7 @@
     "react-scripts": "5.0.1",
     "recharts": "^2.1.11",
     "tailwind-scrollbar-hide": "^1.1.7",
+    "vanilla-tilt": "^1.7.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
