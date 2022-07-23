@@ -5,8 +5,10 @@ import Card from "../UI/Card/Card";
 import Profile from "../Profile/Profile";
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import SpeakerIcon from '@mui/icons-material/Speaker';
+import ComputerIcon from '@mui/icons-material/Computer';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
+import Loader from "../UI/Loader/Loader"
+import { Icon } from '@iconify/react';
 import skull from '../Assets/toxic (1).png'
 import heart from '../Assets/love (1).png'
 import car from '../Assets/toy-car.png'
@@ -40,28 +42,28 @@ const Dashboard = () => {
     const data = [
         {name: 'Smartphones', students: 400, fill: '#F806CC'},
         {name: 'Headphones', students: 700, fill: '#570A57'},
-        {name: 'Cars', students: 200, fill: '#A91079'},
-        {name: 'Speakers', students: 1000, fill: '#2E0249'}
+        {name: 'Shoes', students: 200, fill: '#A91079'},
+        {name: 'Laptops', students: 1000, fill: '#2E0249'}
     ];
 
     const segregatedData = [
         {
-            "name": "Life Insurance",
+            "name": "Smartphones",
             "positive": 4000,
             "negative": 2400
         },
         {
-            "name": "Home Insurance",
+            "name": "Headphones",
             "positive": 3000,
             "negative": 1398
         },
         {
-            "name": "Automobile Insurance",
+            "name": "Shoes",
             "positive": 2000,
             "negative": 9800
         },
         {
-            "name": "Health Insurance",
+            "name": "Laptop",
             "positive": 2780,
             "negative": 3908
         }
@@ -75,8 +77,8 @@ const Dashboard = () => {
     const [collective, setCollective] = useState([
         {name: 'SmartPhones', students: 0, fill: '#D61C4E' },
         {name: 'HeadPhones', students: 0, fill: '#F77E21' },
-        {name: 'Cars', students: 0, fill: '#FAC213' },
-        {name: 'Speakers', students: 0, fill: '#66BFBF' }
+        {name: 'Shoes', students: 0, fill: '#FAC213' },
+        {name: 'Laptops', students: 0, fill: '#66BFBF' }
     ])
     const [lifeInsurance, setLifeInsurance] = useState(null);
     const [healthInsurance, setHealthInsurance] = useState(null);
@@ -163,13 +165,13 @@ const Dashboard = () => {
 
                                     <button className="toggle-button" onClick={()=>setItem(2)} >
                                     <a href="#" title="Header" data-toggle="popover" data-placement="left"
-                                       data-content="Content"><DirectionsCarIcon/></a>
+                                       data-content="Content"><Icon icon="mdi:shoe-sneaker" color="white" width={35} height={35}/></a>
                                        
                                     </button>
 
                                     <button className="toggle-button" onClick={()=>setItem(3)} >
                                     <a href="#" title="Header" data-toggle="popover" data-placement="right"
-                                       data-content="Content"><SpeakerIcon/></a>
+                                       data-content="Content"><ComputerIcon/></a>
                                        
                                     </button>
                                 </div>
@@ -196,17 +198,18 @@ const Dashboard = () => {
 
                         <div>
                             <span
-                                className="block dashboard-heading__chart px-5 text-center">Insurance Sentiments</span>
+                                className="block dashboard-heading__chart px-5 text-center">Products Sentiments</span>
                             <ResponsiveContainer width={500} height="80%">
                                 <PieChart width={200} height={200}>
                                     <Legend verticalAlign="bottom" align="center"/>
                                     <Pie data={sentiments} dataKey="students" outerRadius={200} fill="#8884d8" label/>
                                 </PieChart>
                             </ResponsiveContainer>
+                            
                         </div>
                         <div>
                             <span
-                                className="block dashboard-heading__chart px-5 text-center">Insurance Distributions</span>
+                                className="block dashboard-heading__chart px-5 text-center">Products Distributions</span>
                             <ResponsiveContainer width={500} height="85%">
                                 <PieChart width={200} height={200}>
                                     <Legend verticalAlign="bottom" align="center" />
@@ -236,6 +239,7 @@ const Dashboard = () => {
                 </div>
             </div>
              <ChatBot><Link to="/dashboard">ChatBot</Link></ChatBot>
+             <Loader/>
         </div>
     );
 };
