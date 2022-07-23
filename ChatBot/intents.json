@@ -1,0 +1,8 @@
+{"intents": [
+    {"tag": "greetings", 
+    "patterns": ["hello", "hello", "good day", "greetings", "how is it going"],
+    "responses": ["Hello! What can I do for you today?", "Hi! How can I assist you?"]},
+  {"tag": "products", 
+    "patterns": ["Electronics", "shoes", "phone", "headphones", "speakers", "Show me some watches", "can you tell me about your products"],
+    "responses": ["To know about products and their discounts you can visit: https://www.rakuten.com"]}
+]}

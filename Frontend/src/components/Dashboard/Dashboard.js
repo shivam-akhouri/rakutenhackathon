@@ -239,7 +239,7 @@ const Dashboard = () => {
                 </div>
             </div>
              <ChatBot><Link to="/dashboard">ChatBot</Link></ChatBot>
-             <Loader/>
+             {/* <Loader/> */}
         </div>
     );
 };
